@@ -35,7 +35,7 @@ class _RegisterPageState extends State<RegisterPage>
     _confirmpasswordcontroller.dispose();
   }
 
-  // Register function
+
   Future<void> register() async {
     await FirebaseAuth.instance.createUserWithEmailAndPassword(
       email: _emailcontroller.text.trim(),
@@ -88,10 +88,10 @@ class _RegisterPageState extends State<RegisterPage>
     print("register build");
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: const Color(0xFF0B0B0D), // dark background
+      backgroundColor: const Color(0xFF0B0B0D), 
       body: Stack(
         children: [
-          // Animated Star Background
+        
           AnimatedBackground(
             vsync: this,
             behaviour: RandomParticleBehaviour(
@@ -107,7 +107,7 @@ class _RegisterPageState extends State<RegisterPage>
             child: Container(),
           ),
 
-          // Center Glassmorphic Card
+        
           Center(
             child: ClipRRect(
               borderRadius: BorderRadius.circular(25),
@@ -186,7 +186,7 @@ class _RegisterPageState extends State<RegisterPage>
 
                         Consumer<SignInProvider>(
                           builder: (context, obj, child) {
-                            return // Password Field
+                            return
                             TextField(
                               controller: _passwordcontroller,
                               obscureText: obj.obscureText,
