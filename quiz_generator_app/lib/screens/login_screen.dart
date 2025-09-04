@@ -39,10 +39,10 @@ class _GlassLoginPageState extends State<GlassLoginPage>
     print("build ${count++}");
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: const Color(0xFF0B0B0D), // dark background
+      backgroundColor: const Color(0xFF0B0B0D), 
       body: Stack(
         children: [
-          // Animated Star Background
+        
           AnimatedBackground(
             vsync: this,
             behaviour: RandomParticleBehaviour(
@@ -58,7 +58,7 @@ class _GlassLoginPageState extends State<GlassLoginPage>
             child: Container(),
           ),
 
-          // Center Glassmorphic Card
+         
           Center(
             child: ClipRRect(
               borderRadius: BorderRadius.circular(25),
@@ -228,7 +228,7 @@ class _GlassLoginPageState extends State<GlassLoginPage>
                                                   ),
                                                 );
 
-                                                // Navigator bhi safe only if mounted
+                                              
                                                 Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
@@ -239,7 +239,7 @@ class _GlassLoginPageState extends State<GlassLoginPage>
                                               }
                                             } else {
                                               if (context.mounted) {
-                                                // ✅ again check
+                                             
                                                 ScaffoldMessenger.of(
                                                   context,
                                                 ).showSnackBar(
