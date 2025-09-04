@@ -68,10 +68,10 @@ ${summarizedTranscript}
 
         let quizText = await generateText(quizPrompt);
 
-        // Clean any accidental ```json blocks
+      
         quizText = quizText.replace(/```json|```/g, '').trim();
 
-        // Parse JSON safely
+       
         const quizJson = typeof quizText === 'string' ? JSON.parse(quizText) : quizText;
 
         return quizJson;
