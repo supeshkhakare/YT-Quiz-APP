@@ -4,7 +4,7 @@ import json
 
 def get_transcript(video_url):
     try:
-        # Video ID extract karna
+       
         if "v=" in video_url:
             video_id = video_url.split("v=")[1].split("&")[0]
         else:
@@ -13,11 +13,11 @@ def get_transcript(video_url):
         ytt_api = YouTubeTranscriptApi()
         transcript_list = ytt_api.list(video_id)
 
-        # English transcript find karna
+     
         transcript = transcript_list.find_transcript(['en'])
         transcript_data = transcript.fetch()
 
-        # Join all text from objects
+    
         transcript_text = " ".join([t.text for t in transcript_data])
 
         print(json.dumps({"transcript": transcript_text}, ensure_ascii=False))
