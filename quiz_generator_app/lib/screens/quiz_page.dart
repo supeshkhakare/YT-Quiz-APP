@@ -74,7 +74,7 @@ class _QuizPageState extends State<QuizPage> {
             ),
             const SizedBox(height: 20),
 
-            // Options
+         
             ...List.generate(optionsList.length, (index) {
               bool isSelected = selectedIndex == index;
               bool isCorrect = index == currentQ.correctIndex;
@@ -106,7 +106,7 @@ class _QuizPageState extends State<QuizPage> {
                       answers.add(isCorrect);
 
                       if (isCorrect) {
-                        totalScore += 5; // example points
+                        totalScore += 5; 
                       }
                     });
                   }
