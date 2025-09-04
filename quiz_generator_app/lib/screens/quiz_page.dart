@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:quiz_generator_app/Provider/theme_provider.dart';
 
 import '../model/quiz_model.dart';
 import 'Result_page.dart';
@@ -41,13 +43,20 @@ class _QuizPageState extends State<QuizPage> {
   Widget build(BuildContext context) {
     final currentQ = widget.questions[currentQuestionIndex];
     final optionsList = currentQ.options;
-
+    final isDark = context.watch<ThemeProvider>().isDarkMode;
     return Scaffold(
-      backgroundColor: const Color(0xFFF8F9FF),
+      backgroundColor: isDark
+          ? const Color(0xff000000)
+          : const Color(0xfff8f9fc),
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: isDark
+            ? const Color(0xff000000)
+            : const Color(0xfff8f9fc),
         elevation: 0,
-        title: const Text("Rapid Quiz", style: TextStyle(color: Colors.black)),
+        title: Text(
+          "Rapid Quiz",
+          style: TextStyle(color: isDark ? Colors.white : Colors.black),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
@@ -143,7 +152,7 @@ class _QuizPageState extends State<QuizPage> {
               child: ElevatedButton(
                 onPressed: answered ? nextQuestion : null,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black,
+                  backgroundColor: isDark ? Colors.white : Colors.black,
                   padding: const EdgeInsets.symmetric(vertical: 14),
                 ),
                 child: Text(

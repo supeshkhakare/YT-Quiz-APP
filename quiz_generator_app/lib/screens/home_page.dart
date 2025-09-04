@@ -2,6 +2,9 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:quiz_generator_app/Provider/theme_provider.dart';
+import 'package:quiz_generator_app/Widgets/custom_drawer.dart';
 import 'package:quiz_generator_app/screens/loading.dart';
 
 class HomePage extends StatefulWidget {
@@ -23,8 +26,18 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = context.watch<ThemeProvider>().isDarkMode;
+    print("Build DupliHOME");
     return Scaffold(
-      backgroundColor: const Color(0xfff8f9fc),
+      backgroundColor: isDark
+          ? const Color(0xff000000)
+          : const Color(0xfff8f9fc),
+      drawer: CustomDrawer(),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        iconTheme: IconThemeData(color: isDark ? Colors.white : Colors.black87),
+      ),
       body: SafeArea(
         child: Center(
           child: Padding(
@@ -38,6 +51,7 @@ class _HomePageState extends State<HomePage> {
                   style: GoogleFonts.dancingScript(
                     fontSize: 48,
                     fontWeight: FontWeight.bold,
+                    color: isDark ? Colors.white : Colors.black,
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -45,7 +59,8 @@ class _HomePageState extends State<HomePage> {
                 Text(
                   'Quiz is generated on basis of your provided video content.',
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 16, color: Colors.grey[800]),
+                  style: TextStyle(fontSize: 16, color: isDark ? Colors.grey[300] : Colors.grey[800],
+                  ),
                 ),
                 const SizedBox(height: 40),
 
@@ -56,9 +71,11 @@ class _HomePageState extends State<HomePage> {
                         controller: linkController,
                         decoration: InputDecoration(
                           hintText: 'Paste YT link here...',
-                          hintStyle: TextStyle(color: Colors.grey[500]),
+                          hintStyle: TextStyle(
+                            color: isDark ? Colors.white : Colors.black,
+                          ),
                           filled: true,
-                          fillColor: Colors.white,
+                         fillColor: isDark ? Colors.black54 : Colors.white,
                           contentPadding: const EdgeInsets.symmetric(
                             horizontal: 16,
                             vertical: 14,

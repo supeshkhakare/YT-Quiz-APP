@@ -1,9 +1,12 @@
 import 'dart:convert';
-import 'dart:developer'; //
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:lottie/lottie.dart';
+import 'package:provider/provider.dart';
+import 'package:quiz_generator_app/Provider/theme_provider.dart';
+import 'package:quiz_generator_app/screens/home_page.dart';
 
 import '../model/quiz_model.dart';
 import 'quiz_page.dart';
@@ -83,34 +86,49 @@ class _LoadingScreenState extends State<LoadingScreen> {
         log(
           '[ERROR] Non-200 status. $msg. Body snippet: ${response.body.substring(0, response.body.length > 200 ? 200 : response.body.length)}',
         );
-        showErrorSnack(msg);
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            backgroundColor: Colors.red,
+            behavior: SnackBarBehavior.floating,
+            content: Text("No transcript found for video"),
+          ),
+        );
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => HomePage()),
+        );
       }
     } catch (e, st) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: Colors.red,
+          behavior: SnackBarBehavior.floating,
+          content: Text("No transcript found for video"),
+        ),
+      );
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => HomePage()),
+      );
       log('[EXCEPTION] ${e.toString()}');
       log('[STACKTRACE]\n$st');
-      showErrorSnack("Failed to connect: $e");
-    }
-  }
-
-  void showErrorSnack(String message) {
-    log('[SNACK] $message');
-    if (mounted) {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text(message)));
-    } else {
-      log('[WARN] Snack not shown because widget is not mounted.');
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    final isDark = context.watch<ThemeProvider>().isDarkMode;
     log('[BUILD] LoadingScreen build()');
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: isDark
+          ? const Color(0xff000000)
+          : const Color(0xfff8f9fc),
       body: Center(
         child: Lottie.asset(
-          'Assets/Lottie/gemini.json',
+          isDark
+              ? 'Assets/Lottie/Loader_black.json'
+              : 'Assets/Lottie/Loader_white.json',
           width: 600,
           height: 600,
         ),
