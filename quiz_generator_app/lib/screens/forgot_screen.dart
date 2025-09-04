@@ -14,7 +14,7 @@ class Forgotpassword extends StatefulWidget {
 class _ForgotpasswordState extends State<Forgotpassword>
     with TickerProviderStateMixin {
   final _emailcontroller = TextEditingController();
-  // forgot function
+
   Future<void> forgotPass() async {
     try {
       await FirebaseAuth.instance.sendPasswordResetEmail(
@@ -46,10 +46,10 @@ class _ForgotpasswordState extends State<Forgotpassword>
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: const Color(0xFF0B0B0D), // dark background
+      backgroundColor: const Color(0xFF0B0B0D), 
       body: Stack(
         children: [
-          // Animated Star Background
+         
           AnimatedBackground(
             vsync: this,
             behaviour: RandomParticleBehaviour(
@@ -65,7 +65,7 @@ class _ForgotpasswordState extends State<Forgotpassword>
             child: Container(),
           ),
 
-          // Center Glassmorphic Card
+        
           Center(
             child: ClipRRect(
               borderRadius: BorderRadius.circular(25),
