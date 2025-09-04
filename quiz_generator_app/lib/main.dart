@@ -9,10 +9,10 @@ import 'package:quiz_generator_app/firebase_options.dart';
 import 'package:quiz_generator_app/screens/home_page.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized(); // Firebase needs this
+  WidgetsFlutterBinding.ensureInitialized(); 
   await Firebase.initializeApp(
     options:
-        DefaultFirebaseOptions.currentPlatform, // from firebase_options.dart
+        DefaultFirebaseOptions.currentPlatform, 
   );
   runApp(const MyApp());
 }
@@ -20,7 +20,7 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+ 
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
