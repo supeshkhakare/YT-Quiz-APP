@@ -16,25 +16,25 @@ class SignInProvider with ChangeNotifier {
   String? get errorMessage => _errorMessage;
   bool get obscureText => _obscureText;
 
-  // Update email
+
   void updateEmail(String value) {
     _email = value.trim();
     notifyListeners();
   }
 
-  // Update password
+ 
   void updatePassword(String value) {
     _password = value.trim();
     notifyListeners();
   }
 
-  // Toggle password visibility
+ 
   void toggleObscureText() {
     _obscureText = !_obscureText;
     notifyListeners();
   }
 
-  // SignIn function
+ 
   Future<User?> signIn(String email, String password) async {
     _isLoading = true;
     _errorMessage = null;
