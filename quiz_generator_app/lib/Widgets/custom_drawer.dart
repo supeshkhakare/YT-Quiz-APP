@@ -127,7 +127,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                             ),
                           ),
                         );
-                        // Navigate after showing the snackbar
+                      
                         Navigator.of(context).pushAndRemoveUntil(
                           MaterialPageRoute(
                             builder: (context) => const AuthPage(),
@@ -140,7 +140,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
 
                   const Spacer(),
 
-                  // Footer
+                
                   Text(
                     'Generate quizzes from YouTube\nvideos in seconds.\n"Learn smarter, play better."',
                     style: GoogleFonts.poppins(
