@@ -19,7 +19,7 @@ class AuthServices {
         credential,
       );
 
-      return userCredential.user; // <-- directly return Firebase User
+      return userCredential.user;
     } catch (e) {
       print("Google Sign-In Error: $e");
       return null;
