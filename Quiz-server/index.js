@@ -30,7 +30,7 @@ app.post('/transcript', (req, res) => {
 
             const quiz = await generateQuizFromTranscript(transcriptText);
 
-            // ✅ Return proper JSON format for Postman
+           
             res.json(quiz);
 
         } catch (err) {
