@@ -45,7 +45,7 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Title
+              
                 Text(
                   'Quiz App',
                   style: GoogleFonts.dancingScript(
@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 const SizedBox(height: 8),
-                // Subtitle
+              
                 Text(
                   'Quiz is generated on basis of your provided video content.',
                   textAlign: TextAlign.center,
