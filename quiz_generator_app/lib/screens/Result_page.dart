@@ -200,13 +200,13 @@ class _ResultPageState extends State<ResultPage> {
             ),
           ),
 
-          // 🎉 Confetti
+        
           ConfettiWidget(
             confettiController: _confettiController,
             blastDirectionality: BlastDirectionality.explosive,
-            emissionFrequency: 0.1, // more frequent
-            numberOfParticles: 50, // more particles
-            minBlastForce: 10, // stronger blasts
+            emissionFrequency: 0.1,
+            numberOfParticles: 50, 
+            minBlastForce: 10, 
             maxBlastForce: 20,
             shouldLoop: false,
             colors: const [
