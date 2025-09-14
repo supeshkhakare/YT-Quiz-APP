@@ -77,7 +77,7 @@ ${summarizedTranscript}
         return quizJson;
 
     } catch (error) {
-        console.error("🚨 Gemini API Error:", error);
+        console.error("Gemini API Error:", error);
         throw new Error("Failed to generate quiz");
     }
 }
